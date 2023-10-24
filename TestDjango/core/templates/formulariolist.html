@@ -1,0 +1,47 @@
+{% extends "./base.html" %}
+
+
+{% block title %}Lista {% endblock %}
+
+{% block body %}
+{% load static %}
+
+<!DOCTYPE html>
+<br>
+<head>
+    <title>Lista de artistas</title>
+</head>
+
+
+<table class="table table-striped" style="background-color: rgb(255, 255, 255);">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre Artista</th>
+        <th>descripcion</th>
+        <th>img</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ser in servicios %}
+      <tr>
+        <td>{{ usuario.ID_usuario }}</td>
+        <td>{{ usuario.nombre_usuario }}</td>
+        <td>{{ usuario.descripcion }}</td>
+        <td>{{ img }}</td>
+        <td><a href="{% url 'editar producto' formulariomod.ID_usuario %}" class="btn btn-primary">Editar</a></td>
+        <td><a href="{% url 'borrar producto' usuario.ID_usuario %}" class="btn btn-danger btn-Eliminacion">Eliminar</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+
+    <a href="{% url 'formulariocreate'%}" class="btn btn-primary">Agregar</a>
+    <a href="{% url 'formulariomod'%}" class="btn btn-primary">Editar</a>
+    <a href="{% url 'formulariodelete'%}" class="btn btn-primary">Eliminar</a>
+<br></br>
+</body>
+</html>
+
+{% endblock  %}
